@@ -1,0 +1,23 @@
+<div class="container mt-3">
+    <h1 class="text-center">login</h1>
+    <form (ngSubmit)="submit()">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" [(ngModel)]="loginForm.username" required #email="ngModel">
+        </div>
+         <!-- Validation -->
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="p-2 bg-red-300 text-red-800 rounded">
+          Email is invalid.
+      </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" [(ngModel)]="loginForm.password" name="password"  #password="ngModel"required>
+        </div>
+
+        <div *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="p-2 bg-red-300 text-red-800 rounded">
+            Password is invalid.
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>

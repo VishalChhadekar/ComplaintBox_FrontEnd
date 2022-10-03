@@ -1,0 +1,62 @@
+<div class="container mt-3">
+    <h3>Engineers</h3>
+    <table class="table ">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+            </tr>
+        </thead>
+        <ng-container *ngFor="let engineer of engineers">
+            <tbody>
+                <tr>
+                    <td>{{engineer.engineer_id}}</td>
+                    <td>{{engineer.name}}</td>
+                    <td><button class="btn btn-sm btn-warning" (click)="deleteEngineer(engineer.engineer_id)">Delete</button></td>
+                </tr>
+            </tbody>
+        </ng-container>
+    </table>
+
+    <h3>Managers</h3>
+    <table class="table ">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+            </tr>
+        </thead>
+        <ng-container *ngFor="let manager of managers">
+            <tbody>
+                <tr>
+                    <td>{{manager.manager_id}}</td>
+                    <td>{{manager.name}}</td>
+                    <td><button class="btn btn-sm btn-warning" (click)="deleteManager(manager.manager_id)">Delete</button></td>
+                </tr>
+            </tbody>
+        </ng-container>
+    </table>
+
+    <h3>Customers</h3>
+    <table class="table ">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Contact</th>
+            </tr>
+        </thead>
+        <ng-container *ngFor="let customer of customers">
+            <tbody>
+                <tr>
+                    <td>{{customer.cust_id}}</td>
+                    <td>{{customer.name}}</td>
+                    <td>{{customer.address}}</td>
+                    <td>{{customer.contact}}</td>
+                    <td><button class="btn btn-sm btn-warning" (click)="deleteCustomer(customer.cust_id)">Delete</button></td>
+                </tr>
+            </tbody>
+        </ng-container>
+    </table>
+</div>

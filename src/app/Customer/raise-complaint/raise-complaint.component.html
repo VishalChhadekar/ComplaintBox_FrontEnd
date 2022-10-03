@@ -1,0 +1,44 @@
+<div class="container mt-3">
+    <h1 class="text-center">Raise Complaint</h1>
+    <form (ngSubmit)="submit()">
+        <div class="mb-3">
+            <label for="name" class="form-label">Complaint Type</label>
+            <!-- <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="name" [(ngModel)]="customer.name" required #name="ngModel"> -->
+
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="raiseComplaint.complaint"
+                name="complaint">
+                <option selected>Choose One.</option>
+                <option>Cannot make a call, but receive a call.</option>
+                <option>Can make calls, but cannot receive calls.</option>
+                <option>Neither make nor receive calls.</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="userName" class="form-label">Email</label>
+            <input type="text" class="form-control" id="userName" aria-describedby="emailHelp" name="userName"
+                [(ngModel)]="raiseComplaint.userName" required #usersName="ngModel">
+        </div>
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="name"
+                [(ngModel)]="raiseComplaint.name" required #name="ngModel">
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" aria-describedby="emailHelp" name="address"
+                [(ngModel)]="raiseComplaint.address" required #address="ngModel">
+        </div>
+        <div class="mb-3">
+            <label for="pinCode" class="form-label">Pin Code</label>
+            <input type="text" class="form-control" id="pinCode" aria-describedby="emailHelp" name="pinCode"
+                [(ngModel)]="raiseComplaint.pinCode" required #pinCode="ngModel">
+        </div>
+        <div class="mb-3">
+            <label for="contact" class="form-label">Contact</label>
+            <input type="number" class="form-control" id="contact" aria-describedby="emailHelp" name="contact"
+                [(ngModel)]="raiseComplaint.contact" required #contact="ngModel">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>

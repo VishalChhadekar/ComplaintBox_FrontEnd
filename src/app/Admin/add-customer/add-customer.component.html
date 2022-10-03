@@ -1,0 +1,22 @@
+<div class="container mt-3">
+    <h1 class="text-center">Add Customer</h1>
+    <form (ngSubmit)="submit()">
+        <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="name" aria-describedby="emailHelp" name="name" [(ngModel)]="customer.name" required #name="ngModel">
+        </div>
+        <div class="mb-3">
+            <label for="address" class="form-label">Address</label>
+            <input type="text" class="form-control" id="address" aria-describedby="emailHelp" name="address" [(ngModel)]="customer.address" required #address="ngModel">
+        </div>
+        <div class="mb-3">
+            <label for="pinCode" class="form-label">Pin Code</label>
+            <input type="text" class="form-control" id="pinCode" aria-describedby="emailHelp" name="pinCode" [(ngModel)]="customer.pinCode" required #pinCode="ngModel">
+        </div>
+        <div class="mb-3">
+            <label for="contact" class="form-label">Contact No:</label>
+            <input type="number" class="form-control" id="contact" aria-describedby="emailHelp" name="contact" [(ngModel)]="customer.contact" required #contact="ngModel">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>

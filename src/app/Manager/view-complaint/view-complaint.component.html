@@ -1,0 +1,85 @@
+<div class="container mt-3">
+    <ng-container *ngIf="!compIsPresent">
+        <h4>View Complaints</h4>
+        <form (ngSubmit)="viewComplaints()">
+            <div class="mb-3">
+                <label for="complaintPinCode" class="form-label">Area, Pin Code</label>
+                <input type="text" class="form-control" name="complaintPinCode" [(ngModel)]="complaintPinCode">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form><br>
+
+    </ng-container>
+
+    <ng-container *ngIf="compIsPresent">
+        <h4>Your Area's Complaints.</h4><br>
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th scope="col">Complaint Id</th>
+                    <th scope="col">Customer Id</th>
+                    <th scope="col">Complaint Type</th>
+                    <th scope="col">Pin Code</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Assinged Engineer Id</th>
+                </tr>
+            </thead>
+
+            <ng-container *ngFor="let complaint of complaints">
+                <tbody>
+                    <tr>
+                        <td>{{complaint.complaint_id}}</td>
+                        <td>{{complaint.customer.custid}}</td>
+                        <td>{{complaint.complaint}}</td>
+                        <td>{{complaint.pinCode}}</td>
+                        <td>{{complaint.status}}</td>
+                        <td>
+                            <form (ngSubmit)="assingEngineer(complaint.complaint_id)">
+                                <div class="mb-3">
+                                    <input type="number" class="form-control" name="engineerId" [(ngModel)]="engineerId">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </td>
+                        <!-- Assing Engineers: use button -->
+                    </tr>
+                </tbody>
+            </ng-container>
+        </table><br>
+    </ng-container>
+
+
+    <ng-container *ngIf="!engIsPresent">
+        <h4>Engineers for this Area</h4>
+        <form (ngSubmit)="viewEngineers()">
+            <div class="mb-3">
+                <label for="engineersPinCode" class="form-label">Area, Pin Code</label>
+                <input type="text" class="form-control" name="engineersPinCode" [(ngModel)]="engineersPinCode">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </ng-container>
+
+    <ng-container *ngIf="engIsPresent">
+        <h4>Available Engineers</h4><br>
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th scope="col">Engineer Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">PinCode</th>
+                </tr>
+            </thead>
+
+            <ng-container *ngFor="let engineer of engineers">
+                <tbody>
+                    <tr>
+                        <td>{{engineer.engineer_id}}</td>
+                        <td>{{engineer.name}}</td>
+                        <td>{{engineer.pinCode}}</td>
+                    </tr>
+                </tbody>
+            </ng-container>
+        </table><br>
+    </ng-container>
+</div>

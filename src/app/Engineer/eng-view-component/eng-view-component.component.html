@@ -1,0 +1,50 @@
+<div class="container mt-3">
+    <ng-container *ngIf="!compIsPresent">
+        <h4>View Complaints</h4>
+        <form (ngSubmit)="viewComplaints()">
+            <div class="mb-3">
+                <label for="engId" class="form-label">Engineer Id</label>
+                <input type="text" class="form-control" name="engId" [(ngModel)]="engId">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form><br>
+
+    </ng-container>
+
+    <ng-container *ngIf="compIsPresent">
+        <h4>Your Area's Complaints.</h4><br>
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th scope="col">Complaint Id</th>
+                    <th scope="col">Customer Id</th>
+                    <th scope="col">Complaint Type</th>
+                    <th scope="col">Pin Code</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Assinged Engineer</th>
+                </tr>
+            </thead>
+
+            <ng-container *ngFor="let complaint of complaints">
+                <tbody>
+                    <tr>
+                        <td>{{complaint.complaint_id}}</td>
+                        <td>{{complaint.customer.custid}}</td>
+                        <td>{{complaint.complaint}}</td>
+                        <td>{{complaint.pinCode}}</td>
+                        <td>{{complaint.status}} 
+                            <form (ngSubmit)="updateStatus(complaint.complaint_id)">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" name="inputStatus" [(ngModel)]="inputStatus">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </form>
+                        </td>
+                        <td>{{complaint.engineer}}</td>
+                        <!-- Assing Engineers: use button -->
+                    </tr>
+                </tbody>
+            </ng-container>
+        </table><br>
+    </ng-container>
+</div>
